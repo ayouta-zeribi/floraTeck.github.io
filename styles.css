@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Open Sans' ,sans-serif;
+}
+body {
+    height: 100vh;
+}
+.logo {
+    height: 15vh;
+    width: 50%;
+    /* Adjust the positioning as per your requirement */
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    /* Adjust the background image as per your file structure */
+    background-image: url("Orange Skincare Routine Pinterest Pin_20240608_010716_0000.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+#video-background {
+    position: center;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    /* Add other styles as required */
+}
+.navbar {
+    height: 17vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0; /* Stick it to the top of the viewport */
+    background-color: rgb(13, 139, 1); /* Add your desired background color */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    margin: 0 auto; /* Reset margin */
+    padding: 0; /* Reset padding */
+    background-color: rgba(0, 128, 0, 0.5); /* Green color with 70% opacity */
+}
+
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size:  1rem;
+}
+a:hover{
+    color: rgb(0, 73, 0);
+}
+header{
+    position: relative;
+    padding: 0 2rem;
+    background-color: rgb(13, 139, 1);
+}
+.navbar .links {
+    display: flex;
+    gap: 3rem;
+    flex-grow: 1; /* Let the list container grow to fill the remaining space */
+    justify-content: flex-end; /* Align the list items to the right */
+}
+.navbar .links.active {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 50%;
+    background-color: rgb(13, 139, 1);
+    padding: 1rem;
+    z-index: 999; /* Add a higher z-index */
+}
+
+.navbar .links.active li {
+    margin-bottom: 1rem;
+}
+
+.toggle_btn {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+.toggle_btn:hover{
+    color: rgb(0, 73, 0);
+}
+
+/* Always show toggle button for small screen sizes */
+@media screen and (max-width: 980px) {
+    .toggle_btn {
+        display: block; /* Show toggle button on small screens */
+        z-index: 2; /* Ensure the toggle button is on top of the links */
+    }
+
+    .navbar .links {
+        display: none; /* Hide links by default on small screens */
+    }
+
+    .navbar .links.active {
+        display: flex; /* Show links when the toggle button is clicked */
+    }
+}
